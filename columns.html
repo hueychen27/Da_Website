@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Simple Columns</title>
+    <link rel="stylesheet" href="a-styles.css">
+    <style>
+        body {
+            font-size: 1.44rem;
+        }
+
+        .columns {
+            columns: 4 250px;
+            column-rule: 2.5px solid #544;
+            column-gap: 4rem;
+        }
+
+        .columns p {
+            margin-top: 0;
+        }
+
+        .columns h2 {
+            margin-top: 0;
+            background-color: hsl(0, 0%, 40%);
+            color: white;
+            padding: 0.88rem;
+            break-inside: avoid;
+        }
+
+        .columns .qt {
+            margin-top: 2.2rem;
+            font-size: 2.5rem;
+            text-align: center;
+            color: hsl(270, 33%, 20%);
+            column-span: all;
+        }
+
+        .no-wrap {
+            white-space: nowrap;
+        }
+    </style>
+</head>
+
+<body>
+    <section class="columns">
+        <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Sint suscipit est vitae dolorem architecto dolore
+            veniam iusto ipsum quia perspiciatis.</p>
+        <p>Asperiores modi velit excepturi. Velit veniam maxime explicabo corporis, ea consequatur obcaecati minus
+            consequuntur eaque eligendi pariatur repellat ipsum sunt.</p>
+        <h2>Another One</h2>
+        <p class="qt">&ldquo;What's wrong Tim?&rdquo; <span class="no-wrap">&mdash;Tim's Mom</span></p>
+        <p>Error reprehenderit, quasi harum, dolor quas vero ratione officiis deleniti autem corrupti cupiditate
+            explicabo
+            magni, porro non optio illo consequatur!</p>
+        <p>Voluptatem repudiandae beatae accusantium dolorem quaerat? Repellendus eum porro nisi facilis laborum odit
+            fugiat
+            voluptas nostrum, commodi, earum molestias fugit.</p>
+    </section>
+    <nav>
+        <p>Navigation: </p>
+        <ul>
+            <li><a href="index.html">Home</a></li>
+        </ul>
+    </nav>
+</body>
+
+</html>

@@ -1,0 +1,43 @@
+html {
+    font-size: 12px;
+}
+
+
+a {
+    display: block;
+    color: rgba(235, 173, 29, 0.9);
+    text-decoration: none;
+    outline: none;
+    width: fit-content;
+}
+
+a.center-a {
+    margin-left: auto;
+    margin-right: auto;
+    text-align: center;
+}
+
+a::after {
+    content: "";
+    display: block;
+    background-color: rgb(133, 241, 103);
+    height: 3px;
+    width: 100%;
+    left: 0;
+    bottom: 0;
+    transition: 0.3s ease-out;
+    -webkit-transform: scale(0, 1);
+    -moz-transform: scale(0, 1);
+    -ms-transform: scale(0, 1);
+    -o-transform: scale(0, 1);
+    transform: scale(0, 1);
+}
+
+a:hover::after,
+a:focus::after {
+    -webkit-transform: scale(1, 1);
+    -moz-transform: scale(1, 1);
+    -ms-transform: scale(1, 1);
+    -o-transform: scale(1, 1);
+    transform: scale(1, 1);
+}

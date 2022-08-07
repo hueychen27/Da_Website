@@ -1,0 +1,1094 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Starter Projects</title>
+    <link rel="stylesheet" href="a-styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.6.0/styles/vs2015.min.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.6.0/highlight.min.js"></script>
+    <style>
+        .accordion {
+            background-color: #eee;
+            color: #444;
+            cursor: pointer;
+            padding: 18px;
+            width: 100%;
+            border: none;
+            text-align: left;
+            outline: none;
+            font-size: 15px;
+            transition: 0.4s;
+        }
+
+        .panel:not(:last-of-type) {
+            margin-bottom: 20px;
+        }
+
+        .active,
+        .accordion:hover {
+            background-color: #ccc;
+        }
+
+        .accordion:after {
+            content: '\002B';
+            color: #777;
+            font-weight: bold;
+            float: right;
+            margin-left: 5px;
+        }
+
+        .active:after {
+            content: "\2212";
+        }
+
+        .panel {
+            padding: 0 18px;
+            background-color: hsl(0, 0%, 65%);
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.2s ease-out;
+        }
+
+        .source-codes {
+            width: 80%;
+            margin: 10px auto;
+        }
+    </style>
+</head>
+
+<body>
+    <script>
+        hljs.highlightAll();
+    </script>
+    <p>It's simple, pick a sample website to look at some cool designs.</p>
+    <p>Why did I make this?</p>
+    <ul>
+        <li><a href="columns.html" hreflang="en">Simple Column Layout</a></li>
+        <li><a href="grid-area.html" hreflang="en">Simple Grid-Area Layout</a></li>
+        <li><a href="dark-mode-toggle.html" hreflang="en">Toggling Dark Mode with Custom Features</a></li>
+        <li><a href="nutrition-label.html" hreflang="en">Simple Nutrition Label Design</a></li>
+    </ul>
+    <p>Source codes!</p>
+    <div class="source-codes">
+        <button class="accordion" type="button">Simple Column Layout Source Code</button>
+        <div class="panel">
+            <pre><code class="language-html">&lt;!DOCTYPE html&gt;
+&lt;html lang=&quot;en&quot;&gt;
+
+&lt;head&gt;
+    &lt;meta charset=&quot;UTF-8&quot;&gt;
+    &lt;meta http-equiv=&quot;X-UA-Compatible&quot; content=&quot;IE=edge&quot;&gt;
+    &lt;meta name=&quot;viewport&quot; content=&quot;width=device-width, initial-scale=1.0&quot;&gt;
+    &lt;title&gt;Simple Columns&lt;/title&gt;
+    &lt;style&gt;
+        body {
+            font-size: 1.44rem;
+        }
+
+        .columns {
+            columns: 4 250px;
+            column-rule: 2.5px solid #544;
+            column-gap: 4rem;
+        }
+
+        .columns p {
+            margin-top: 0;
+        }
+
+        .columns h2 {
+            margin-top: 0;
+            background-color: hsl(0, 0%, 40%);
+            color: white;
+            padding: 0.88rem;
+            break-inside: avoid;
+        }
+
+        .columns .qt {
+            margin-top: 2.2rem;
+            font-size: 2.5rem;
+            text-align: center;
+            color: hsl(270, 33%, 20%);
+            column-span: all;
+        }
+
+        .no-wrap {
+            white-space: nowrap;
+        }
+    &lt;/style&gt;
+&lt;/head&gt;
+
+&lt;body&gt;
+    &lt;section class=&quot;columns&quot;&gt;
+        &lt;p&gt;Lorem ipsum dolor sit amet consectetur, adipisicing elit. Sint suscipit est vitae dolorem architecto dolore
+            veniam iusto ipsum quia perspiciatis.&lt;/p&gt;
+        &lt;p&gt;Asperiores modi velit excepturi. Velit veniam maxime explicabo corporis, ea consequatur obcaecati minus
+            consequuntur eaque eligendi pariatur repellat ipsum sunt.&lt;/p&gt;
+        &lt;h2&gt;Another One&lt;/h2&gt;
+        &lt;p class=&quot;qt&quot;&gt;&ldquo;What's wrong Tim?&rdquo; &lt;span class=&quot;no-wrap&quot;&gt;&mdash;Tim's Mom&lt;/span&gt;&lt;/p&gt;
+        &lt;p&gt;Error reprehenderit, quasi harum, dolor quas vero ratione officiis deleniti autem corrupti cupiditate
+            explicabo
+            magni, porro non optio illo consequatur!&lt;/p&gt;
+        &lt;p&gt;Voluptatem repudiandae beatae accusantium dolorem quaerat? Repellendus eum porro nisi facilis laborum odit
+            fugiat
+            voluptas nostrum, commodi, earum molestias fugit.&lt;/p&gt;
+    &lt;/section&gt;
+&lt;/body&gt;
+
+&lt;/html&gt;</code></pre>
+        </div>
+        <button class="accordion" type="button">Simple Grid-Area Layout Source Code</button>
+        <div class="panel">
+            <pre><code class="language-html">&lt;!DOCTYPE html&gt;
+&lt;html lang=&quot;en&quot;&gt;
+
+&lt;head&gt;
+    &lt;meta charset=&quot;UTF-8&quot;&gt;
+    &lt;meta http-equiv=&quot;X-UA-Compatible&quot; content=&quot;IE=edge&quot;&gt;
+    &lt;meta name=&quot;viewport&quot; content=&quot;width=device-width, initial-scale=1.0&quot;&gt;
+    &lt;title&gt;Grid Areas&lt;/title&gt;
+    &lt;style&gt;
+        * {
+            margin: 0;
+            padding: 0;
+            -webkit-box-sizing: border-box;
+            -moz-box-sizing: border-box;
+            box-sizing: border-box;
+        }
+
+        html {
+            font-size: 12px;
+        }
+
+        html,
+        body,
+        #page {
+            width: 100%;
+            height: 100%;
+        }
+
+        .tc {
+            display: grid;
+            place-content: center;
+        }
+
+        #page {
+            display: grid;
+            grid-auto-rows: 50px auto 50px;
+            column-gap: 0.75rem;
+            grid-template-areas:
+                &quot;hd hd hd hd hd hd hd hd hd hd&quot;
+                &quot;mn mn mn mn mn mn mn mn mn nv&quot;
+                &quot;ft ft ft ft ft ft ft ft ft ft&quot;
+            ;
+        }
+
+        .page-container {
+            background-color: brown;
+            font-size: 1.5rem;
+            grid-area: mn;
+            min-height: 300px;
+            display: grid;
+            grid-template-columns: repeat(2, 1fr, 2fr);
+            grid-auto-rows: minmax(125px, auto);
+            gap: 1.25rem;
+        }
+
+        .box {
+            background-color: cadetblue;
+            color: white;
+            padding: 0.4rem;
+        }
+
+        .box:first-child {
+            background-color: aquamarine;
+            color: black;
+            grid-column: 1 / 4;
+            grid-row: 1 / 3;
+        }
+
+        .box:nth-child(2) {
+            color: #222;
+            background: hsla(90, 77%, 46%, 0.958);
+            grid-column: span 2;
+            grid-row: 1 / 4;
+        }
+
+        #page-header {
+            background-color: red;
+            font-size: 3rem;
+            grid-area: hd;
+        }
+
+        #page-nav {
+            background-color: blue;
+            font-size: 1.75rem;
+            grid-area: nv;
+        }
+
+        #page-footer {
+            background-color: purple;
+            font-size: 1.35rem;
+            grid-area: ft;
+        }
+    &lt;/style&gt;
+&lt;/head&gt;
+
+&lt;body&gt;
+    &lt;section id=&quot;page&quot;&gt;
+        &lt;header id=&quot;page-header&quot; class=&quot;tc&quot; tabindex=&quot;0&quot;&gt;Simple Grid Areas&lt;/header&gt;
+        &lt;nav id=&quot;page-nav&quot; class=&quot;tc&quot; tabindex=&quot;0&quot;&gt;
+            &lt;p&gt;Navigation: &lt;/p&gt;
+            &lt;a style=&quot;margin: 0.5rem;&quot;&gt;Navigation...&lt;/a&gt;
+        &lt;/nav&gt;
+        &lt;main class=&quot;page-container&quot; tabindex=&quot;0&quot;&gt;
+            &lt;div class=&quot;box&quot;&gt;Hello 1&lt;/div&gt;
+            &lt;div class=&quot;box&quot;&gt;Hi 2&lt;/div&gt;
+            &lt;div class=&quot;box&quot;&gt;Morning 3&lt;/div&gt;
+        &lt;/main&gt;
+        &lt;footer id=&quot;page-footer&quot; class=&quot;tc&quot; tabindex=&quot;0&quot;&gt;&copy;No one 2022&lt;/footer&gt;
+    &lt;/section&gt;
+&lt;/body&gt;
+
+&lt;/html&gt;</code></pre>
+        </div>
+        <button class="accordion" type="button">Toggling Dark Mode Source Code</button>
+        <div class="panel">
+            <pre><code class="language-html">&lt;!DOCTYPE html&gt;
+&lt;html lang=&quot;en&quot;&gt;
+
+&lt;head&gt;
+    &lt;meta charset=&quot;UTF-8&quot;&gt;
+    &lt;meta http-equiv=&quot;X-UA-Compatible&quot; content=&quot;IE=edge&quot;&gt;
+    &lt;meta name=&quot;viewport&quot; content=&quot;width=device-width, initial-scale=1.0&quot;&gt;
+    &lt;title&gt;Dark Mode Toggling&lt;/title&gt;
+    &lt;style&gt;
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        p,
+        h1 {
+            margin-bottom: 20px;
+        }
+
+        body {
+            background-color: aliceblue;
+            color: hsl(0, 0%, 20%);
+            font-size: 1.2rem;
+            padding: 10px;
+        }
+
+        h1:first-child {
+            margin-top: 10px;
+        }
+
+        object {
+            opacity: 0.8;
+        }
+
+        figure {
+            flex-direction: column;
+        }
+
+        /*Utilites*/
+
+        .add-space-bottom {
+            margin-bottom: 120vh;
+        }
+
+        .center {
+            display: flex;
+            width: 100%;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .red {
+            color: red;
+        }
+
+        .yellow {
+            color: yellow;
+        }
+
+        /*Dark Mode Styles --Start--*/
+
+        .dark-mode {
+            background-color: hsl(0, 0%, 20%);
+            color: hsl(0, 0%, 80%);
+        }
+
+        .dark-mode-btn {
+            /*Dark mode button styles*/
+            position: fixed;
+            z-index: 2;
+            bottom: 25px;
+            right: 25px;
+            border-radius: 50%;
+            padding: 0.85vw;
+            background-color: hsla(0, 0%, 0%, 0.25);
+            color: hsla(0, 0%, 100%, 0.95);
+            cursor: pointer;
+            font-size: 2rem;
+            transition: transform 0.3s ease-in-out;
+            outline: none;
+        }
+
+        .dark-mode-btn:hover,
+        .dark-mode-btn:focus-visible {
+            /*Zoom in animation of button when button is tabbed or hovered*/
+            transform: scale(1.5);
+            background-color: hsla(182, 26%, 25%, 0.25);
+        }
+
+        .dark-mode object {
+            opacity: 0.65;
+        }
+
+        /*Icons*/
+
+        .dark::before {
+            content: &quot;1F319&quot;;
+        }
+
+        .light::before {
+            content: &quot;1F506&quot;;
+        }
+
+        /*Override dark mode*/
+
+        .dark-mode .override-dark-mode-with-opacity {
+            opacity: 0.75;
+        }
+
+        .dark-mode .override-dark-mode-with-color {
+            filter: brightness(0.8);
+        }
+
+        /*Dark Mode Styles --End--*/
+    &lt;/style&gt;
+&lt;/head&gt;
+
+&lt;body&gt;
+    &lt;h1&gt;Toggle Dark Mode&lt;/h1&gt;
+
+    &lt;p class=&quot;add-space-bottom&quot;&gt;Press the button on the bottom right corner to toggle dark mode.&lt;/p&gt;
+    &lt;p&gt;Hello.&lt;/p&gt;
+    &lt;figure class=&quot;center&quot;&gt;
+        &lt;object data=&quot;img/cat.svg&quot; type=&quot;image/svg+xml&quot; width=&quot;533&quot; height=&quot;533&quot; role=&quot;img&quot; title=&quot;A picture of a cat&quot;
+            class=&quot;override-dark-mode-with-opacity override-dark-mode-with-color&quot;&gt;&lt;/object&gt;
+        &lt;figcaption&gt;
+            &lt;p&gt;Credits: &lt;a href='https://www.freepik.com/vectors/cat-logo'&gt;Cat logo vector created by catalyststuff -
+                    www.freepik.com&lt;/a&gt;
+        &lt;/figcaption&gt;
+        &lt;p&gt;When this image is in dark mode, the image gets darker and has more opacity.&lt;/p&gt;
+    &lt;/figure&gt;
+    &lt;p class=&quot;override-dark-mode-with-opacity red&quot;&gt;When I am in dark mode, I have more opacity!&lt;/p&gt;
+    &lt;p class=&quot;override-dark-mode-with-color yellow&quot;&gt;When I am in dark mode, I get darker!&lt;/p&gt;
+
+    &lt;button type=&quot;button&quot; class=&quot;dark-mode-btn&quot; onclick=&quot;toggleDarkMode(); toggleBtn(this);&quot;
+        title=&quot;Toggle Dark/Light Mode&quot;&gt;&lt;span class=&quot;dark&quot;&gt;&lt;/span&gt;
+        &lt;script defer&gt;
+            // Script will toggle class &quot;dark-mode&quot;
+            function toggleDarkMode() {
+                const element = document.body;
+                element.classList.toggle(&quot;dark-mode&quot;);
+            }
+
+            // Toggles icon when the dark mode button is clicked
+
+            window.toggleBtn = function (button) {
+                $(button).find('span').toggleClass('dark light');
+            }
+        &lt;/script&gt;
+        &lt;!--Jquery is for vital for icon script--&gt;
+        &lt;script src=&quot;https://code.jquery.com/jquery-3.6.0.min.js&quot;
+            integrity=&quot;sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=&quot; crossorigin=&quot;anonymous&quot;&gt;&lt;/script&gt;
+&lt;/body&gt;
+
+&lt;/html&gt;</code></pre>
+        </div>
+        <button class="accordion" type="button">Simple Nutrition Label Source Code</button>
+        <div class="panel">
+            <pre><code class="language-html">&lt;!DOCTYPE html&gt;
+&lt;html lang=&quot;en&quot;&gt;
+
+&lt;head&gt;
+    &lt;meta charset=&quot;UTF-8&quot;&gt;
+    &lt;meta http-equiv=&quot;X-UA-Compatible&quot; content=&quot;IE=edge&quot;&gt;
+    &lt;meta name=&quot;viewport&quot; content=&quot;width=device-width, initial-scale=1.0&quot;&gt;
+    &lt;title&gt;Nutrition Labels&lt;/title&gt;
+    &lt;meta charset=&quot;UTF-8&quot;&gt;
+    &lt;title&gt;Nutrition Label&lt;/title&gt;
+    &lt;link href=&quot;https://fonts.googleapis.com/css?family=Open+Sans:400,700,800&quot; rel=&quot;stylesheet&quot;&gt;
+    &lt;style&gt;
+        * {
+            box-sizing: border-box;
+        }
+
+        html {
+            font-size: 16px;
+        }
+
+        body {
+            font-family: &quot;Open Sans&quot;, sans-serif;
+        }
+
+        .label {
+            border: 2px solid black;
+            width: 270px;
+            margin: 20px auto;
+            padding: 0 7px;
+        }
+
+        header h1 {
+            text-align: center;
+            margin: -4px 0;
+            letter-spacing: 0.15px;
+        }
+
+        p {
+            margin: 0;
+        }
+
+        .divider {
+            border-bottom: 1px solid #888989;
+            margin: 2px 0;
+            clear: right;
+        }
+
+        .bold {
+            font-weight: 800;
+        }
+
+        .right {
+            float: right;
+        }
+
+        .lg {
+            height: 10px;
+        }
+
+        .lg,
+        .md {
+            background-color: black;
+            border: 0;
+        }
+
+        .md {
+            height: 5px;
+        }
+
+        .sm-text {
+            font-size: 0.85rem;
+        }
+
+        .calories-info h1 {
+            margin: -5px -2px;
+            overflow: hidden;
+        }
+
+        .calories-info span {
+            font-size: 1.2em;
+            margin-top: -7px;
+        }
+
+        .indent {
+            margin-left: 1em;
+        }
+
+        .dbl-indent {
+            margin-left: 2em;
+        }
+
+        .daily-value p:not(.no-divider) {
+            border-bottom: 1px solid #888989;
+        }
+
+        .note {
+            font-size: 0.6rem;
+            margin: 5px 0;
+            padding: 0 8px;
+            text-indent: -8px;
+        }
+    &lt;/style&gt;
+&lt;/head&gt;
+
+&lt;body&gt;
+    &lt;div style=&quot;float: left; clear: left;&quot;&gt;
+        &lt;p&gt;Svg Nutrition Label&lt;/p&gt;
+        &lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot; standalone=&quot;no&quot;?&gt;
+        &lt;svg xmlns:dc=&quot;http://purl.org/dc/elements/1.1/&quot; xmlns:cc=&quot;http://creativecommons.org/ns#&quot;
+            xmlns:rdf=&quot;http://www.w3.org/1999/02/22-rdf-syntax-ns#&quot; xmlns:svg=&quot;http://www.w3.org/2000/svg&quot;
+            xmlns=&quot;http://www.w3.org/2000/svg&quot; viewBox=&quot;0 0 232 431.54666&quot; height=&quot;431.54666&quot; width=&quot;232&quot;
+            xml:space=&quot;preserve&quot; id=&quot;svg2&quot; version=&quot;1.1&quot;&gt;
+            &lt;metadata id=&quot;metadata8&quot;&gt;
+                &lt;rdf:RDF&gt;
+                    &lt;cc:Work rdf:about=&quot;&quot;&gt;
+                        &lt;dc:format&gt;image/svg+xml&lt;/dc:format&gt;
+                        &lt;dc:type rdf:resource=&quot;http://purl.org/dc/dcmitype/StillImage&quot; /&gt;
+                    &lt;/cc:Work&gt;
+                &lt;/rdf:RDF&gt;
+            &lt;/metadata&gt;
+            &lt;defs id=&quot;defs6&quot; /&gt;
+            &lt;g transform=&quot;matrix(1.3333333,0,0,-1.3333333,0,431.54667)&quot; id=&quot;g10&quot;&gt;
+                &lt;g id=&quot;g12&quot;&gt;&lt;text id=&quot;text16&quot;
+                        style=&quot;font-variant:normal;font-weight:normal;font-size:21px;font-family:'Franklin Gothic Heavy';-inkscape-font-specification:FranklinGothic-Heavy;writing-mode:lr-tb;fill:#000000;fill-opacity:1;fill-rule:nonzero;stroke:none&quot;
+                        transform=&quot;matrix(1,0,0,-1,4.5,301.32)&quot;&gt;
+                        &lt;tspan id=&quot;tspan14&quot; y=&quot;0&quot;
+                            x=&quot;0 15.556 28.990999 37.931999 47.083 54.470001 63.410999 70.797997 84.421997 97.899002 107.749 120.365 133.821 145.933 154.87399&quot;&gt;
+                            Nutrition Facts&lt;/tspan&gt;
+                    &lt;/text&gt;
+                &lt;/g&gt;
+                &lt;g id=&quot;g18&quot;&gt;
+                    &lt;path id=&quot;path20&quot; style=&quot;fill:#000000;fill-opacity:1;fill-rule:nonzero;stroke:none&quot;
+                        d=&quot;m 4.5,296.04 h 166.01 v 0.125 H 4.5 Z&quot; /&gt;
+                &lt;/g&gt;
+                &lt;g id=&quot;g22&quot;&gt;&lt;text id=&quot;text26&quot;
+                        style=&quot;font-variant:normal;font-weight:normal;font-size:10px;font-family:Helvetica;-inkscape-font-specification:Helvetica;writing-mode:lr-tb;fill:#000000;fill-opacity:1;fill-rule:nonzero;stroke:none&quot;
+                        transform=&quot;matrix(1,0,0,-1,6.5,285.97)&quot;&gt;
+                        &lt;tspan id=&quot;tspan24&quot; y=&quot;0&quot;
+                            x=&quot;0 5.5599999 8.3400002 13.34 18.9 22.23 27.23 29.450001 35.009998 40.57 45.57 48.349998 53.91 59.470001 62.799999 65.580002 70.580002 76.139999 81.699997 84.480003 90.040001 92.260002 97.82 103.38&quot;&gt;
+                            6 servings per container&lt;/tspan&gt;
+                    &lt;/text&gt;
+                &lt;/g&gt;
+                &lt;g id=&quot;g28&quot;&gt;&lt;text id=&quot;text32&quot;
+                        style=&quot;font-variant:normal;font-weight:bold;font-size:10px;font-family:Helvetica;-inkscape-font-specification:Helvetica-Bold;writing-mode:lr-tb;fill:#000000;fill-opacity:1;fill-rule:nonzero;stroke:none&quot;
+                        transform=&quot;matrix(1,0,0,-1,5.5,272.97)&quot;&gt;
+                        &lt;tspan id=&quot;tspan30&quot; y=&quot;0&quot;
+                            x=&quot;0 6.6700001 12.23 16.120001 21.68 24.459999 30.57 36.68 39.459999 45.02 47.799999 52.799999 58.360001&quot;&gt;
+                            Serving size &lt;/tspan&gt;
+                    &lt;/text&gt;
+                &lt;/g&gt;
+                &lt;g id=&quot;g34&quot;&gt;&lt;text id=&quot;text38&quot;
+                        style=&quot;font-variant:normal;font-weight:bold;font-size:10px;font-family:Helvetica;-inkscape-font-specification:Helvetica-Bold;writing-mode:lr-tb;fill:#000000;fill-opacity:1;fill-rule:nonzero;stroke:none&quot;
+                        transform=&quot;matrix(1,0,0,-1,101.15,272.97)&quot;&gt;
+                        &lt;tspan id=&quot;tspan36&quot; y=&quot;0&quot;
+                            x=&quot;0 5.5599999 8.3400002 13.9 16.68 23.9 30.01 36.119999 41.68 44.459999 47.790001 53.349998 58.91 65.019997&quot;&gt;
+                            1/5 Cups (48g)&lt;/tspan&gt;
+                    &lt;/text&gt;
+                &lt;/g&gt;
+                &lt;g id=&quot;g40&quot;&gt;
+                    &lt;path id=&quot;path42&quot; style=&quot;fill:#000000;fill-opacity:1;fill-rule:nonzero;stroke:none&quot;
+                        d=&quot;m 4.5,265.04 h 166.01 v 5 H 4.5 Z&quot; /&gt;
+                &lt;/g&gt;
+                &lt;g id=&quot;g44&quot;&gt;&lt;text id=&quot;text48&quot;
+                        style=&quot;font-variant:normal;font-weight:bold;font-size:8px;font-family:Helvetica;-inkscape-font-specification:Helvetica-Bold;writing-mode:lr-tb;fill:#000000;fill-opacity:1;fill-rule:nonzero;stroke:none&quot;
+                        transform=&quot;matrix(1,0,0,-1,5.5,257.58)&quot;&gt;
+                        &lt;tspan id=&quot;tspan46&quot; y=&quot;0&quot;
+                            x=&quot;0 5.776 12.888 17.775999 22.664 27.552 30.216 32.439999 37.776001 42.223999 45.335999 47.560001 52.896 57.344002 60.456001 64.903999 67.127998 72.015999&quot;&gt;
+                            Amount Per Serving&lt;/tspan&gt;
+                    &lt;/text&gt;
+                &lt;/g&gt;
+                &lt;g id=&quot;g50&quot;&gt;&lt;text id=&quot;text54&quot;
+                        style=&quot;font-variant:normal;font-weight:bold;font-size:16px;font-family:Helvetica;-inkscape-font-specification:Helvetica-Bold;writing-mode:lr-tb;fill:#000000;fill-opacity:1;fill-rule:nonzero;stroke:none&quot;
+                        transform=&quot;matrix(1,0,0,-1,5.5,241.13)&quot;&gt;
+                        &lt;tspan id=&quot;tspan52&quot; y=&quot;0&quot;
+                            x=&quot;0 11.552 20.448 24.896 34.672001 40.896 45.344002 54.240002 63.136002&quot;&gt;Calories
+                        &lt;/tspan&gt;
+                    &lt;/text&gt;
+                &lt;/g&gt;
+                &lt;g id=&quot;g56&quot;&gt;&lt;text id=&quot;text60&quot;
+                        style=&quot;font-variant:normal;font-weight:bold;font-size:22px;font-family:Helvetica;-inkscape-font-specification:Helvetica-Bold;writing-mode:lr-tb;fill:#000000;fill-opacity:1;fill-rule:nonzero;stroke:none&quot;
+                        transform=&quot;matrix(1,0,0,-1,132.8,242.29)&quot;&gt;
+                        &lt;tspan id=&quot;tspan58&quot; y=&quot;0&quot; x=&quot;0 12.232 24.464001&quot;&gt;200&lt;/tspan&gt;
+                    &lt;/text&gt;
+                &lt;/g&gt;
+                &lt;g id=&quot;g62&quot;&gt;
+                    &lt;path id=&quot;path64&quot; style=&quot;fill:#000000;fill-opacity:1;fill-rule:nonzero;stroke:none&quot;
+                        d=&quot;m 4.5,233.54 h 166.01 v 3.5 H 4.5 Z&quot; /&gt;
+                &lt;/g&gt;
+                &lt;g id=&quot;g66&quot;&gt;&lt;text id=&quot;text70&quot;
+                        style=&quot;font-variant:normal;font-weight:bold;font-size:6px;font-family:Helvetica;-inkscape-font-specification:Helvetica-Bold;writing-mode:lr-tb;fill:#000000;fill-opacity:1;fill-rule:nonzero;stroke:none&quot;
+                        transform=&quot;matrix(1,0,0,-1,127.16,226.7)&quot;&gt;
+                        &lt;tspan id=&quot;tspan68&quot; y=&quot;0&quot;
+                            x=&quot;0 5.3340001 7.0019999 11.334 14.67 16.337999 18.006001 21.341999 23.01 27.011999 30.348 32.015999 35.681999 39.018002&quot;&gt;
+                            % Daily Value*&lt;/tspan&gt;
+                    &lt;/text&gt;
+                &lt;/g&gt;
+                &lt;g id=&quot;g72&quot;&gt;
+                    &lt;path id=&quot;path74&quot; style=&quot;fill:#000000;fill-opacity:1;fill-rule:nonzero;stroke:none&quot;
+                        d=&quot;m 4.5,223.41 h 166.01 v 0.125 H 4.5 Z&quot; /&gt;
+                &lt;/g&gt;
+                &lt;g id=&quot;g76&quot;&gt;&lt;text id=&quot;text80&quot;
+                        style=&quot;font-variant:normal;font-weight:bold;font-size:8px;font-family:Helvetica;-inkscape-font-specification:Helvetica-Bold;writing-mode:lr-tb;fill:#000000;fill-opacity:1;fill-rule:nonzero;stroke:none&quot;
+                        transform=&quot;matrix(1,0,0,-1,4.5,215.52)&quot;&gt;
+                        &lt;tspan id=&quot;tspan78&quot; y=&quot;0&quot;
+                            x=&quot;0 4.888 9.776 12.44 16.888 19.112 21.336 26.224001 30.672001 33.335999&quot;&gt;Total Fat
+                        &lt;/tspan&gt;
+                    &lt;/text&gt;
+                &lt;/g&gt;
+                &lt;g id=&quot;g82&quot;&gt;&lt;text id=&quot;text86&quot;
+                        style=&quot;font-variant:normal;font-weight:normal;font-size:8px;font-family:Helvetica;-inkscape-font-specification:Helvetica;writing-mode:lr-tb;fill:#000000;fill-opacity:1;fill-rule:nonzero;stroke:none&quot;
+                        transform=&quot;matrix(1,0,0,-1,40.06,215.52)&quot;&gt;
+                        &lt;tspan id=&quot;tspan84&quot; y=&quot;0&quot; x=&quot;0 4.448&quot;&gt;4g&lt;/tspan&gt;
+                    &lt;/text&gt;
+                &lt;/g&gt;
+                &lt;g id=&quot;g88&quot;&gt;&lt;text id=&quot;text92&quot;
+                        style=&quot;font-variant:normal;font-weight:bold;font-size:8px;font-family:Helvetica;-inkscape-font-specification:Helvetica-Bold;writing-mode:lr-tb;fill:#000000;fill-opacity:1;fill-rule:nonzero;stroke:none&quot;
+                        transform=&quot;matrix(1,0,0,-1,157.94,215.08)&quot;&gt;
+                        &lt;tspan id=&quot;tspan90&quot; y=&quot;0&quot; x=&quot;0 4.448&quot;&gt;5%&lt;/tspan&gt;
+                    &lt;/text&gt;
+                &lt;/g&gt;
+                &lt;g id=&quot;g94&quot;&gt;
+                    &lt;path id=&quot;path96&quot; style=&quot;fill:#000000;fill-opacity:1;fill-rule:nonzero;stroke:none&quot;
+                        d=&quot;m 4.5,212.41 h 166.01 v 0.125 H 4.5 Z&quot; /&gt;
+                &lt;/g&gt;
+                &lt;g id=&quot;g98&quot;&gt;&lt;text id=&quot;text102&quot;
+                        style=&quot;font-variant:normal;font-weight:normal;font-size:8px;font-family:Helvetica;-inkscape-font-specification:Helvetica;writing-mode:lr-tb;fill:#000000;fill-opacity:1;fill-rule:nonzero;stroke:none&quot;
+                        transform=&quot;matrix(1,0,0,-1,14.88,204.51)&quot;&gt;
+                        &lt;tspan id=&quot;tspan100&quot; y=&quot;0&quot;
+                            x=&quot;0 5.336 9.7840004 12.008 16.455999 19.120001 23.568001 25.792 30.24 34.688 36.911999 41.799999 46.248001 48.472&quot;&gt;
+                            Saturated Fat &lt;/tspan&gt;
+                    &lt;/text&gt;
+                &lt;/g&gt;
+                &lt;g id=&quot;g104&quot;&gt;&lt;text id=&quot;text108&quot;
+                        style=&quot;font-variant:normal;font-weight:normal;font-size:8px;font-family:Helvetica;-inkscape-font-specification:Helvetica;writing-mode:lr-tb;fill:#000000;fill-opacity:1;fill-rule:nonzero;stroke:none&quot;
+                        transform=&quot;matrix(1,0,0,-1,65.57,204.51)&quot;&gt;
+                        &lt;tspan id=&quot;tspan106&quot; y=&quot;0&quot; x=&quot;0 4.448 6.6719999 11.12&quot;&gt;0.2g&lt;/tspan&gt;
+                    &lt;/text&gt;
+                &lt;/g&gt;
+                &lt;g id=&quot;g110&quot;&gt;&lt;text id=&quot;text114&quot;
+                        style=&quot;font-variant:normal;font-weight:bold;font-size:8px;font-family:Helvetica;-inkscape-font-specification:Helvetica-Bold;writing-mode:lr-tb;fill:#000000;fill-opacity:1;fill-rule:nonzero;stroke:none&quot;
+                        transform=&quot;matrix(1,0,0,-1,157.94,204.07)&quot;&gt;
+                        &lt;tspan id=&quot;tspan112&quot; y=&quot;0&quot; x=&quot;0 4.448&quot;&gt;1%&lt;/tspan&gt;
+                    &lt;/text&gt;
+                &lt;/g&gt;
+                &lt;g id=&quot;g116&quot;&gt;
+                    &lt;path id=&quot;path118&quot; style=&quot;fill:#000000;fill-opacity:1;fill-rule:nonzero;stroke:none&quot;
+                        d=&quot;m 4.5,201.4 h 166.01 v 0.125 H 4.5 Z&quot; /&gt;
+                &lt;/g&gt;
+                &lt;g id=&quot;g120&quot;&gt;&lt;text id=&quot;text124&quot;
+                        style=&quot;font-style:oblique;font-variant:normal;font-size:7px;font-family:Helvetica;-inkscape-font-specification:Helvetica-Oblique;writing-mode:lr-tb;fill:#000000;fill-opacity:1;fill-rule:nonzero;stroke:none&quot;
+                        transform=&quot;matrix(1,0,0,-1,14.88,193.51)&quot;&gt;
+                        &lt;tspan id=&quot;tspan122&quot; y=&quot;0&quot; x=&quot;0 4.277 6.6079998 10.5 14.392&quot;&gt;Trans&lt;/tspan&gt;
+                    &lt;/text&gt;
+                &lt;/g&gt;
+                &lt;g id=&quot;g126&quot;&gt;&lt;text id=&quot;text130&quot;
+                        style=&quot;font-variant:normal;font-weight:normal;font-size:8px;font-family:Helvetica;-inkscape-font-specification:Helvetica;writing-mode:lr-tb;fill:#000000;fill-opacity:1;fill-rule:nonzero;stroke:none&quot;
+                        transform=&quot;matrix(1,0,0,-1,34.994,193.51)&quot;&gt;
+                        &lt;tspan id=&quot;tspan128&quot; y=&quot;0&quot; x=&quot;0 4.888 9.3360004 11.56&quot;&gt;Fat &lt;/tspan&gt;
+                    &lt;/text&gt;
+                &lt;/g&gt;
+                &lt;g id=&quot;g132&quot;&gt;&lt;text id=&quot;text136&quot;
+                        style=&quot;font-variant:normal;font-weight:normal;font-size:8px;font-family:Helvetica;-inkscape-font-specification:Helvetica;writing-mode:lr-tb;fill:#000000;fill-opacity:1;fill-rule:nonzero;stroke:none&quot;
+                        transform=&quot;matrix(1,0,0,-1,48.78,193.51)&quot;&gt;
+                        &lt;tspan id=&quot;tspan134&quot; y=&quot;0&quot; x=&quot;0 4.448&quot;&gt;0g&lt;/tspan&gt;
+                    &lt;/text&gt;
+                &lt;/g&gt;
+                &lt;g id=&quot;g138&quot;&gt;
+                    &lt;path id=&quot;path140&quot; style=&quot;fill:#000000;fill-opacity:1;fill-rule:nonzero;stroke:none&quot;
+                        d=&quot;m 4.5,190.4 h 166.01 v 0.125 H 4.5 Z&quot; /&gt;
+                &lt;/g&gt;
+                &lt;g id=&quot;g142&quot;&gt;&lt;text id=&quot;text146&quot;
+                        style=&quot;font-variant:normal;font-weight:normal;font-size:8px;font-family:Helvetica;-inkscape-font-specification:Helvetica;writing-mode:lr-tb;fill:#000000;fill-opacity:1;fill-rule:nonzero;stroke:none&quot;
+                        transform=&quot;matrix(1,0,0,-1,14.88,182.5)&quot;&gt;
+                        &lt;tspan id=&quot;tspan144&quot; y=&quot;0&quot;
+                            x=&quot;0 5.336 9.7840004 11.56 15.56 20.007999 24.455999 28.455999 32.903999 35.127998 39.576 42.240002 46.688 48.911999 53.360001 57.807999 60.032001 64.919998 69.367996 71.592003&quot;&gt;
+                            Polyunsaturated Fat &lt;/tspan&gt;
+                    &lt;/text&gt;
+                &lt;/g&gt;
+                &lt;g id=&quot;g148&quot;&gt;&lt;text id=&quot;text152&quot;
+                        style=&quot;font-variant:normal;font-weight:normal;font-size:8px;font-family:Helvetica;-inkscape-font-specification:Helvetica;writing-mode:lr-tb;fill:#000000;fill-opacity:1;fill-rule:nonzero;stroke:none&quot;
+                        transform=&quot;matrix(1,0,0,-1,88.69,182.5)&quot;&gt;
+                        &lt;tspan id=&quot;tspan150&quot; y=&quot;0&quot; x=&quot;0 4.448&quot;&gt;0g&lt;/tspan&gt;
+                    &lt;/text&gt;
+                &lt;/g&gt;
+                &lt;g id=&quot;g154&quot;&gt;
+                    &lt;path id=&quot;path156&quot; style=&quot;fill:#000000;fill-opacity:1;fill-rule:nonzero;stroke:none&quot;
+                        d=&quot;m 4.5,179.39 h 166.01 v 0.125 H 4.5 Z&quot; /&gt;
+                &lt;/g&gt;
+                &lt;g id=&quot;g158&quot;&gt;&lt;text id=&quot;text162&quot;
+                        style=&quot;font-variant:normal;font-weight:normal;font-size:8px;font-family:Helvetica;-inkscape-font-specification:Helvetica;writing-mode:lr-tb;fill:#000000;fill-opacity:1;fill-rule:nonzero;stroke:none&quot;
+                        transform=&quot;matrix(1,0,0,-1,14.88,171.5)&quot;&gt;
+                        &lt;tspan id=&quot;tspan160&quot; y=&quot;0&quot;
+                            x=&quot;0 6.664 11.112 15.56 20.007999 24.455999 28.903999 32.903999 37.352001 39.576 44.023998 46.688 51.136002 53.360001 57.807999 62.256001 64.480003 69.367996 73.816002 76.040001&quot;&gt;
+                            Monounsaturated Fat &lt;/tspan&gt;
+                    &lt;/text&gt;
+                &lt;/g&gt;
+                &lt;g id=&quot;g164&quot;&gt;&lt;text id=&quot;text168&quot;
+                        style=&quot;font-variant:normal;font-weight:normal;font-size:8px;font-family:Helvetica;-inkscape-font-specification:Helvetica;writing-mode:lr-tb;fill:#000000;fill-opacity:1;fill-rule:nonzero;stroke:none&quot;
+                        transform=&quot;matrix(1,0,0,-1,93.14,171.5)&quot;&gt;
+                        &lt;tspan id=&quot;tspan166&quot; y=&quot;0&quot; x=&quot;0 4.448&quot;&gt;0g&lt;/tspan&gt;
+                    &lt;/text&gt;
+                &lt;/g&gt;
+                &lt;g id=&quot;g170&quot;&gt;
+                    &lt;path id=&quot;path172&quot; style=&quot;fill:#000000;fill-opacity:1;fill-rule:nonzero;stroke:none&quot;
+                        d=&quot;m 4.5,168.39 h 166.01 v 0.125 H 4.5 Z&quot; /&gt;
+                &lt;/g&gt;
+                &lt;g id=&quot;g174&quot;&gt;&lt;text id=&quot;text178&quot;
+                        style=&quot;font-variant:normal;font-weight:bold;font-size:8px;font-family:Helvetica;-inkscape-font-specification:Helvetica-Bold;writing-mode:lr-tb;fill:#000000;fill-opacity:1;fill-rule:nonzero;stroke:none&quot;
+                        transform=&quot;matrix(1,0,0,-1,4.5,160.49)&quot;&gt;
+                        &lt;tspan id=&quot;tspan176&quot; y=&quot;0&quot;
+                            x=&quot;0 5.776 10.664 15.552 17.775999 22.224001 26.672001 29.336 33.784 36.896 41.784 44.007999&quot;&gt;
+                            Cholesterol
+                        &lt;/tspan&gt;
+                    &lt;/text&gt;
+                &lt;/g&gt;
+                &lt;g id=&quot;g180&quot;&gt;&lt;text id=&quot;text184&quot;
+                        style=&quot;font-variant:normal;font-weight:normal;font-size:8px;font-family:Helvetica;-inkscape-font-specification:Helvetica;writing-mode:lr-tb;fill:#000000;fill-opacity:1;fill-rule:nonzero;stroke:none&quot;
+                        transform=&quot;matrix(1,0,0,-1,50.73,160.49)&quot;&gt;
+                        &lt;tspan id=&quot;tspan182&quot; y=&quot;0&quot; x=&quot;0 4.448 11.112&quot;&gt;0mg&lt;/tspan&gt;
+                    &lt;/text&gt;
+                &lt;/g&gt;
+                &lt;g id=&quot;g186&quot;&gt;&lt;text id=&quot;text190&quot;
+                        style=&quot;font-variant:normal;font-weight:bold;font-size:8px;font-family:Helvetica;-inkscape-font-specification:Helvetica-Bold;writing-mode:lr-tb;fill:#000000;fill-opacity:1;fill-rule:nonzero;stroke:none&quot;
+                        transform=&quot;matrix(1,0,0,-1,157.94,160.05)&quot;&gt;
+                        &lt;tspan id=&quot;tspan188&quot; y=&quot;0&quot; x=&quot;0 4.448&quot;&gt;0%&lt;/tspan&gt;
+                    &lt;/text&gt;
+                &lt;/g&gt;
+                &lt;g id=&quot;g192&quot;&gt;
+                    &lt;path id=&quot;path194&quot; style=&quot;fill:#000000;fill-opacity:1;fill-rule:nonzero;stroke:none&quot;
+                        d=&quot;m 4.5,157.38 h 166.01 v 0.125 H 4.5 Z&quot; /&gt;
+                &lt;/g&gt;
+                &lt;g id=&quot;g196&quot;&gt;&lt;text id=&quot;text200&quot;
+                        style=&quot;font-variant:normal;font-weight:bold;font-size:8px;font-family:Helvetica;-inkscape-font-specification:Helvetica-Bold;writing-mode:lr-tb;fill:#000000;fill-opacity:1;fill-rule:nonzero;stroke:none&quot;
+                        transform=&quot;matrix(1,0,0,-1,4.5,149.49)&quot;&gt;
+                        &lt;tspan id=&quot;tspan198&quot; y=&quot;0&quot; x=&quot;0 5.336 10.224 15.112 17.336 22.224001 29.336&quot;&gt;Sodium &lt;/tspan&gt;
+                    &lt;/text&gt;
+                &lt;/g&gt;
+                &lt;g id=&quot;g202&quot;&gt;&lt;text id=&quot;text206&quot;
+                        style=&quot;font-variant:normal;font-weight:normal;font-size:8px;font-family:Helvetica;-inkscape-font-specification:Helvetica;writing-mode:lr-tb;fill:#000000;fill-opacity:1;fill-rule:nonzero;stroke:none&quot;
+                        transform=&quot;matrix(1,0,0,-1,36.06,149.49)&quot;&gt;
+                        &lt;tspan id=&quot;tspan204&quot; y=&quot;0&quot; x=&quot;0 4.448 8.8959999 13.344 20.007999&quot;&gt;110mg&lt;/tspan&gt;
+                    &lt;/text&gt;
+                &lt;/g&gt;
+                &lt;g id=&quot;g208&quot;&gt;&lt;text id=&quot;text212&quot;
+                        style=&quot;font-variant:normal;font-weight:bold;font-size:8px;font-family:Helvetica;-inkscape-font-specification:Helvetica-Bold;writing-mode:lr-tb;fill:#000000;fill-opacity:1;fill-rule:nonzero;stroke:none&quot;
+                        transform=&quot;matrix(1,0,0,-1,157.94,149.05)&quot;&gt;
+                        &lt;tspan id=&quot;tspan210&quot; y=&quot;0&quot; x=&quot;0 4.448&quot;&gt;5%&lt;/tspan&gt;
+                    &lt;/text&gt;
+                &lt;/g&gt;
+                &lt;g id=&quot;g214&quot;&gt;
+                    &lt;path id=&quot;path216&quot; style=&quot;fill:#000000;fill-opacity:1;fill-rule:nonzero;stroke:none&quot;
+                        d=&quot;m 4.5,146.38 h 166.01 v 0.125 H 4.5 Z&quot; /&gt;
+                &lt;/g&gt;
+                &lt;g id=&quot;g218&quot;&gt;&lt;text id=&quot;text222&quot;
+                        style=&quot;font-variant:normal;font-weight:bold;font-size:8px;font-family:Helvetica;-inkscape-font-specification:Helvetica-Bold;writing-mode:lr-tb;fill:#000000;fill-opacity:1;fill-rule:nonzero;stroke:none&quot;
+                        transform=&quot;matrix(1,0,0,-1,4.5,138.48)&quot;&gt;
+                        &lt;tspan id=&quot;tspan220&quot; y=&quot;0&quot;
+                            x=&quot;0 4.888 9.776 12.44 16.888 19.112 21.336 27.112 31.559999 34.672001 39.560001 44.448002 49.335999 53.784 58.672001 61.784 66.232002 68.896004 73.344002&quot;&gt;
+                            Total Carbohydrate &lt;/tspan&gt;
+                    &lt;/text&gt;
+                &lt;/g&gt;
+                &lt;g id=&quot;g224&quot;&gt;&lt;text id=&quot;text228&quot;
+                        style=&quot;font-variant:normal;font-weight:normal;font-size:8px;font-family:Helvetica;-inkscape-font-specification:Helvetica;writing-mode:lr-tb;fill:#000000;fill-opacity:1;fill-rule:nonzero;stroke:none&quot;
+                        transform=&quot;matrix(1,0,0,-1,80.07,138.48)&quot;&gt;
+                        &lt;tspan id=&quot;tspan226&quot; y=&quot;0&quot; x=&quot;0 4.448 8.8959999&quot;&gt;15g&lt;/tspan&gt;
+                    &lt;/text&gt;
+                &lt;/g&gt;
+                &lt;g id=&quot;g230&quot;&gt;&lt;text id=&quot;text234&quot;
+                        style=&quot;font-variant:normal;font-weight:bold;font-size:8px;font-family:Helvetica;-inkscape-font-specification:Helvetica-Bold;writing-mode:lr-tb;fill:#000000;fill-opacity:1;fill-rule:nonzero;stroke:none&quot;
+                        transform=&quot;matrix(1,0,0,-1,157.94,138.04)&quot;&gt;
+                        &lt;tspan id=&quot;tspan232&quot; y=&quot;0&quot; x=&quot;0 4.448&quot;&gt;5%&lt;/tspan&gt;
+                    &lt;/text&gt;
+                &lt;/g&gt;
+                &lt;g id=&quot;g236&quot;&gt;
+                    &lt;path id=&quot;path238&quot; style=&quot;fill:#000000;fill-opacity:1;fill-rule:nonzero;stroke:none&quot;
+                        d=&quot;m 4.5,135.37 h 166.01 v 0.125 H 4.5 Z&quot; /&gt;
+                &lt;/g&gt;
+                &lt;g id=&quot;g240&quot;&gt;&lt;text id=&quot;text244&quot;
+                        style=&quot;font-variant:normal;font-weight:normal;font-size:8px;font-family:Helvetica;-inkscape-font-specification:Helvetica;writing-mode:lr-tb;fill:#000000;fill-opacity:1;fill-rule:nonzero;stroke:none&quot;
+                        transform=&quot;matrix(1,0,0,-1,14.88,127.48)&quot;&gt;
+                        &lt;tspan id=&quot;tspan242&quot; y=&quot;0&quot;
+                            x=&quot;0 5.776 7.552 12 14.224 18.672001 21.336 25.336 27.559999 32.448002 34.223999 38.672001 43.119999 45.784&quot;&gt;
+                            Dietary Fiber &lt;/tspan&gt;
+                    &lt;/text&gt;
+                &lt;/g&gt;
+                &lt;g id=&quot;g246&quot;&gt;&lt;text id=&quot;text250&quot;
+                        style=&quot;font-variant:normal;font-weight:normal;font-size:8px;font-family:Helvetica;-inkscape-font-specification:Helvetica;writing-mode:lr-tb;fill:#000000;fill-opacity:1;fill-rule:nonzero;stroke:none&quot;
+                        transform=&quot;matrix(1,0,0,-1,62.88,127.48)&quot;&gt;
+                        &lt;tspan id=&quot;tspan248&quot; y=&quot;0&quot; x=&quot;0 4.448&quot;&gt;5g&lt;/tspan&gt;
+                    &lt;/text&gt;
+                &lt;/g&gt;
+                &lt;g id=&quot;g252&quot;&gt;&lt;text id=&quot;text256&quot;
+                        style=&quot;font-variant:normal;font-weight:bold;font-size:8px;font-family:Helvetica;-inkscape-font-specification:Helvetica-Bold;writing-mode:lr-tb;fill:#000000;fill-opacity:1;fill-rule:nonzero;stroke:none&quot;
+                        transform=&quot;matrix(1,0,0,-1,153.49,127.04)&quot;&gt;
+                        &lt;tspan id=&quot;tspan254&quot; y=&quot;0&quot; x=&quot;0 4.448 8.8959999&quot;&gt;18%&lt;/tspan&gt;
+                    &lt;/text&gt;
+                &lt;/g&gt;
+                &lt;g id=&quot;g258&quot;&gt;
+                    &lt;path id=&quot;path260&quot; style=&quot;fill:#000000;fill-opacity:1;fill-rule:nonzero;stroke:none&quot;
+                        d=&quot;m 4.5,124.37 h 166.01 v 0.125 H 4.5 Z&quot; /&gt;
+                &lt;/g&gt;
+                &lt;g id=&quot;g262&quot;&gt;&lt;text id=&quot;text266&quot;
+                        style=&quot;font-variant:normal;font-weight:normal;font-size:8px;font-family:Helvetica;-inkscape-font-specification:Helvetica;writing-mode:lr-tb;fill:#000000;fill-opacity:1;fill-rule:nonzero;stroke:none&quot;
+                        transform=&quot;matrix(1,0,0,-1,14.88,116.47)&quot;&gt;
+                        &lt;tspan id=&quot;tspan264&quot; y=&quot;0&quot;
+                            x=&quot;0 4.888 9.3360004 11.56 16.007999 17.784 20.007999 25.344 29.792 34.240002 38.688 41.352001 45.352001&quot;&gt;
+                            Total Sugars &lt;/tspan&gt;
+                    &lt;/text&gt;
+                &lt;/g&gt;
+                &lt;g id=&quot;g268&quot;&gt;&lt;text id=&quot;text272&quot;
+                        style=&quot;font-variant:normal;font-weight:normal;font-size:8px;font-family:Helvetica;-inkscape-font-specification:Helvetica;writing-mode:lr-tb;fill:#000000;fill-opacity:1;fill-rule:nonzero;stroke:none&quot;
+                        transform=&quot;matrix(1,0,0,-1,62.45,116.47)&quot;&gt;
+                        &lt;tspan id=&quot;tspan270&quot; y=&quot;0&quot; x=&quot;0 4.448&quot;&gt;0g&lt;/tspan&gt;
+                    &lt;/text&gt;
+                &lt;/g&gt;
+                &lt;g id=&quot;g274&quot;&gt;
+                    &lt;path id=&quot;path276&quot; style=&quot;fill:#000000;fill-opacity:1;fill-rule:nonzero;stroke:none&quot;
+                        d=&quot;M 25.25,113.36 H 170.5 v 0.125 H 25.25 Z&quot; /&gt;
+                &lt;/g&gt;
+                &lt;g id=&quot;g278&quot;&gt;&lt;text id=&quot;text282&quot;
+                        style=&quot;font-variant:normal;font-weight:normal;font-size:8px;font-family:Helvetica;-inkscape-font-specification:Helvetica;writing-mode:lr-tb;fill:#000000;fill-opacity:1;fill-rule:nonzero;stroke:none&quot;
+                        transform=&quot;matrix(1,0,0,-1,26.25,105.91)&quot;&gt;
+                        &lt;tspan id=&quot;tspan280&quot; y=&quot;0&quot;
+                            x=&quot;0 2.224 6.6719999 10.672 12.448 16.896 21.344 25.792 29.792 32.015999 36.464001 40.911999 43.136002 48.472 52.919998 57.368 61.816002 66.264 68.487999 73.823997 78.272003 82.720001 87.167999 89.832001&quot;&gt;
+                            Includes 0g Added Sugars&lt;/tspan&gt;
+                    &lt;/text&gt;
+                &lt;/g&gt;
+                &lt;g id=&quot;g284&quot;&gt;&lt;text id=&quot;text288&quot;
+                        style=&quot;font-variant:normal;font-weight:bold;font-size:8px;font-family:Helvetica;-inkscape-font-specification:Helvetica-Bold;writing-mode:lr-tb;fill:#000000;fill-opacity:1;fill-rule:nonzero;stroke:none&quot;
+                        transform=&quot;matrix(1,0,0,-1,157.94,105.91)&quot;&gt;
+                        &lt;tspan id=&quot;tspan286&quot; y=&quot;0&quot; x=&quot;0 4.448&quot;&gt;0%&lt;/tspan&gt;
+                    &lt;/text&gt;
+                &lt;/g&gt;
+                &lt;g id=&quot;g290&quot;&gt;
+                    &lt;path id=&quot;path292&quot; style=&quot;fill:#000000;fill-opacity:1;fill-rule:nonzero;stroke:none&quot;
+                        d=&quot;m 4.5,103.24 h 166.01 v 0.125 H 4.5 Z&quot; /&gt;
+                &lt;/g&gt;
+                &lt;g id=&quot;g294&quot;&gt;&lt;text id=&quot;text298&quot;
+                        style=&quot;font-variant:normal;font-weight:normal;font-size:8px;font-family:Helvetica;-inkscape-font-specification:Helvetica;writing-mode:lr-tb;fill:#000000;fill-opacity:1;fill-rule:nonzero;stroke:none&quot;
+                        transform=&quot;matrix(1,0,0,-1,14.88,95.34)&quot;&gt;
+                        &lt;tspan id=&quot;tspan296&quot; y=&quot;0&quot;
+                            x=&quot;0 5.336 9.7840004 14.232 18.68 21.344 23.568001 28.903999 30.68 34.68 39.127998 43.576 48.023998 49.799999&quot;&gt;
+                            Sugar Alcohol &lt;/tspan&gt;
+                    &lt;/text&gt;
+                &lt;/g&gt;
+                &lt;g id=&quot;g300&quot;&gt;&lt;text id=&quot;text304&quot;
+                        style=&quot;font-variant:normal;font-weight:normal;font-size:8px;font-family:Helvetica;-inkscape-font-specification:Helvetica;writing-mode:lr-tb;fill:#000000;fill-opacity:1;fill-rule:nonzero;stroke:none&quot;
+                        transform=&quot;matrix(1,0,0,-1,66.9,95.34)&quot;&gt;
+                        &lt;tspan id=&quot;tspan302&quot; y=&quot;0&quot; x=&quot;0 4.448&quot;&gt;0g&lt;/tspan&gt;
+                    &lt;/text&gt;
+                &lt;/g&gt;
+                &lt;g id=&quot;g306&quot;&gt;
+                    &lt;path id=&quot;path308&quot; style=&quot;fill:#000000;fill-opacity:1;fill-rule:nonzero;stroke:none&quot;
+                        d=&quot;m 4.5,92.23 h 166.01 v 0.125 H 4.5 Z&quot; /&gt;
+                &lt;/g&gt;
+                &lt;g id=&quot;g310&quot;&gt;&lt;text id=&quot;text314&quot;
+                        style=&quot;font-variant:normal;font-weight:bold;font-size:8px;font-family:Helvetica;-inkscape-font-specification:Helvetica-Bold;writing-mode:lr-tb;fill:#000000;fill-opacity:1;fill-rule:nonzero;stroke:none&quot;
+                        transform=&quot;matrix(1,0,0,-1,4.5,84.34)&quot;&gt;
+                        &lt;tspan id=&quot;tspan312&quot; y=&quot;0&quot; x=&quot;0 5.336 8.448 13.336 16 20.448 22.672001 27.559999&quot;&gt;Protein
+                        &lt;/tspan&gt;
+                    &lt;/text&gt;
+                &lt;/g&gt;
+                &lt;g id=&quot;g316&quot;&gt;&lt;text id=&quot;text320&quot;
+                        style=&quot;font-variant:normal;font-weight:normal;font-size:8px;font-family:Helvetica;-inkscape-font-specification:Helvetica;writing-mode:lr-tb;fill:#000000;fill-opacity:1;fill-rule:nonzero;stroke:none&quot;
+                        transform=&quot;matrix(1,0,0,-1,34.28,84.34)&quot;&gt;
+                        &lt;tspan id=&quot;tspan318&quot; y=&quot;0&quot; x=&quot;0 4.448&quot;&gt;4g&lt;/tspan&gt;
+                    &lt;/text&gt;
+                &lt;/g&gt;
+                &lt;g id=&quot;g322&quot;&gt;&lt;text id=&quot;text326&quot;
+                        style=&quot;font-variant:normal;font-weight:bold;font-size:8px;font-family:Helvetica;-inkscape-font-specification:Helvetica-Bold;writing-mode:lr-tb;fill:#000000;fill-opacity:1;fill-rule:nonzero;stroke:none&quot;
+                        transform=&quot;matrix(1,0,0,-1,157.94,83.9)&quot;&gt;
+                        &lt;tspan id=&quot;tspan324&quot; y=&quot;0&quot; x=&quot;0 4.448&quot;&gt;8%&lt;/tspan&gt;
+                    &lt;/text&gt;
+                &lt;/g&gt;
+                &lt;g id=&quot;g328&quot;&gt;
+                    &lt;path id=&quot;path330&quot; style=&quot;fill:#000000;fill-opacity:1;fill-rule:nonzero;stroke:none&quot;
+                        d=&quot;m 4.5,76.35 h 166.01 v 5 H 4.5 Z&quot; /&gt;
+                &lt;/g&gt;
+                &lt;g id=&quot;g332&quot;&gt;&lt;text id=&quot;text336&quot;
+                        style=&quot;font-variant:normal;font-weight:normal;font-size:8px;font-family:Helvetica;-inkscape-font-specification:Helvetica;writing-mode:lr-tb;fill:#000000;fill-opacity:1;fill-rule:nonzero;stroke:none&quot;
+                        transform=&quot;matrix(1,0,0,-1,5.5,68.9)&quot;&gt;
+                        &lt;tspan id=&quot;tspan334&quot; y=&quot;0&quot;
+                            x=&quot;0 5.336 7.112 9.3360004 13.784 20.448 22.224001 26.672001 28.896 34.672001 36.896 41.344002 48.007999 52.007999&quot;&gt;
+                            Vitamin D 1mcg&lt;/tspan&gt;
+                    &lt;/text&gt;
+                &lt;/g&gt;
+                &lt;g id=&quot;g338&quot;&gt;&lt;text id=&quot;text342&quot;
+                        style=&quot;font-variant:normal;font-weight:normal;font-size:8px;font-family:Helvetica;-inkscape-font-specification:Helvetica;writing-mode:lr-tb;fill:#000000;fill-opacity:1;fill-rule:nonzero;stroke:none&quot;
+                        transform=&quot;matrix(1,0,0,-1,157.94,68.9)&quot;&gt;
+                        &lt;tspan id=&quot;tspan340&quot; y=&quot;0&quot; x=&quot;0 4.448&quot;&gt;4%&lt;/tspan&gt;
+                    &lt;/text&gt;
+                &lt;/g&gt;
+                &lt;g id=&quot;g344&quot;&gt;
+                    &lt;path id=&quot;path346&quot; style=&quot;fill:#000000;fill-opacity:1;fill-rule:nonzero;stroke:none&quot;
+                        d=&quot;m 4.5,66.23 h 166.01 v 0.125 H 4.5 Z&quot; /&gt;
+                &lt;/g&gt;
+                &lt;g id=&quot;g348&quot;&gt;&lt;text id=&quot;text352&quot;
+                        style=&quot;font-variant:normal;font-weight:normal;font-size:8px;font-family:Helvetica;-inkscape-font-specification:Helvetica;writing-mode:lr-tb;fill:#000000;fill-opacity:1;fill-rule:nonzero;stroke:none&quot;
+                        transform=&quot;matrix(1,0,0,-1,5.5,58.77)&quot;&gt;
+                        &lt;tspan id=&quot;tspan350&quot; y=&quot;0&quot;
+                            x=&quot;0 5.776 10.224 12 16 17.775999 22.224001 28.888 31.112 35.560001 40.007999 46.672001&quot;&gt;
+                            Calcium 75mg&lt;/tspan&gt;
+                    &lt;/text&gt;
+                &lt;/g&gt;
+                &lt;g id=&quot;g354&quot;&gt;&lt;text id=&quot;text358&quot;
+                        style=&quot;font-variant:normal;font-weight:normal;font-size:8px;font-family:Helvetica;-inkscape-font-specification:Helvetica;writing-mode:lr-tb;fill:#000000;fill-opacity:1;fill-rule:nonzero;stroke:none&quot;
+                        transform=&quot;matrix(1,0,0,-1,157.94,58.77)&quot;&gt;
+                        &lt;tspan id=&quot;tspan356&quot; y=&quot;0&quot; x=&quot;0 4.448&quot;&gt;6%&lt;/tspan&gt;
+                    &lt;/text&gt;
+                &lt;/g&gt;
+                &lt;g id=&quot;g360&quot;&gt;
+                    &lt;path id=&quot;path362&quot; style=&quot;fill:#000000;fill-opacity:1;fill-rule:nonzero;stroke:none&quot;
+                        d=&quot;m 4.5,56.1 h 166.01 v 0.125 H 4.5 Z&quot; /&gt;
+                &lt;/g&gt;
+                &lt;g id=&quot;g364&quot;&gt;&lt;text id=&quot;text368&quot;
+                        style=&quot;font-variant:normal;font-weight:normal;font-size:8px;font-family:Helvetica;-inkscape-font-specification:Helvetica;writing-mode:lr-tb;fill:#000000;fill-opacity:1;fill-rule:nonzero;stroke:none&quot;
+                        transform=&quot;matrix(1,0,0,-1,5.5,48.65)&quot;&gt;
+                        &lt;tspan id=&quot;tspan366&quot; y=&quot;0&quot;
+                            x=&quot;0 2.224 4.888 9.3360004 13.784 16.007999 20.455999 22.68 27.128 33.792&quot;&gt;Iron 0.5mg
+                        &lt;/tspan&gt;
+                    &lt;/text&gt;
+                &lt;/g&gt;
+                &lt;g id=&quot;g370&quot;&gt;&lt;text id=&quot;text374&quot;
+                        style=&quot;font-variant:normal;font-weight:normal;font-size:8px;font-family:Helvetica;-inkscape-font-specification:Helvetica;writing-mode:lr-tb;fill:#000000;fill-opacity:1;fill-rule:nonzero;stroke:none&quot;
+                        transform=&quot;matrix(1,0,0,-1,157.94,48.65)&quot;&gt;
+                        &lt;tspan id=&quot;tspan372&quot; y=&quot;0&quot; x=&quot;0 4.448&quot;&gt;2%&lt;/tspan&gt;
+                    &lt;/text&gt;
+                &lt;/g&gt;
+                &lt;g id=&quot;g376&quot;&gt;
+                    &lt;path id=&quot;path378&quot; style=&quot;fill:#000000;fill-opacity:1;fill-rule:nonzero;stroke:none&quot;
+                        d=&quot;m 4.5,45.98 h 166.01 v 0.125 H 4.5 Z&quot; /&gt;
+                &lt;/g&gt;
+                &lt;g id=&quot;g380&quot;&gt;&lt;text id=&quot;text384&quot;
+                        style=&quot;font-variant:normal;font-weight:normal;font-size:8px;font-family:Helvetica;-inkscape-font-specification:Helvetica;writing-mode:lr-tb;fill:#000000;fill-opacity:1;fill-rule:nonzero;stroke:none&quot;
+                        transform=&quot;matrix(1,0,0,-1,5.5,38.52)&quot;&gt;
+                        &lt;tspan id=&quot;tspan382&quot; y=&quot;0&quot;
+                            x=&quot;0 5.336 9.7840004 12.008 16.455999 20.455999 24.455999 26.232 30.68 37.344002 39.568001 44.015999 48.464001 52.911999 59.576&quot;&gt;
+                            Potassium 450mg&lt;/tspan&gt;
+                    &lt;/text&gt;
+                &lt;/g&gt;
+                &lt;g id=&quot;g386&quot;&gt;&lt;text id=&quot;text390&quot;
+                        style=&quot;font-variant:normal;font-weight:normal;font-size:8px;font-family:Helvetica;-inkscape-font-specification:Helvetica;writing-mode:lr-tb;fill:#000000;fill-opacity:1;fill-rule:nonzero;stroke:none&quot;
+                        transform=&quot;matrix(1,0,0,-1,153.49,38.52)&quot;&gt;
+                        &lt;tspan id=&quot;tspan388&quot; y=&quot;0&quot; x=&quot;0 4.448 8.8959999&quot;&gt;10%&lt;/tspan&gt;
+                    &lt;/text&gt;
+                &lt;/g&gt;
+                &lt;g id=&quot;g392&quot;&gt;
+                    &lt;path id=&quot;path394&quot; style=&quot;fill:#000000;fill-opacity:1;fill-rule:nonzero;stroke:none&quot;
+                        d=&quot;m 4.5,32.48 h 166.01 v 3.5 H 4.5 Z&quot; /&gt;
+                &lt;/g&gt;
+                &lt;g id=&quot;g396&quot;&gt;&lt;text id=&quot;text400&quot;
+                        style=&quot;font-variant:normal;font-weight:normal;font-size:6px;font-family:Helvetica;-inkscape-font-specification:Helvetica;writing-mode:lr-tb;fill:#000000;fill-opacity:1;fill-rule:nonzero;stroke:none&quot;
+                        transform=&quot;matrix(1,0,0,-1,4.5,23.14)&quot;&gt;
+                        &lt;tspan id=&quot;tspan398&quot; y=&quot;0&quot; x=&quot;0&quot;&gt;*&lt;/tspan&gt;
+                    &lt;/text&gt;
+                &lt;/g&gt;
+                &lt;g id=&quot;g402&quot;&gt;&lt;text id=&quot;text406&quot;
+                        style=&quot;font-variant:normal;font-weight:normal;font-size:6px;font-family:Helvetica;-inkscape-font-specification:Helvetica;writing-mode:lr-tb;fill:#000000;fill-opacity:1;fill-rule:nonzero;stroke:none&quot;
+                        transform=&quot;matrix(1,0,0,-1,7.5,23.97)&quot;&gt;
+                        &lt;tspan id=&quot;tspan404&quot; y=&quot;0&quot;
+                            x=&quot;0 3.6659999 7.0019999 10.338 12.006 17.34 19.007999 23.34 26.676001 28.007999 29.34 32.34 34.007999 38.009998 41.346001 42.678001 46.014 49.349998 51.018002 53.015999 57.348 61.349998 63.348 65.015999 66.683998 70.019997 71.351997 72.683998 75.683998 77.351997 80.351997 83.688004 87.024002 88.692001 92.028 95.363998 99.695999 101.364 106.362 109.698 112.698 116.034 117.702 121.038 122.706 126.042 129.37801 131.04601 133.04401 134.37601 137.71201 141.048 142.716 144.384 145.716 149.052 150.72 154.056&quot;&gt;
+                            The % Daily Value (DV) tells you how much a nutrient in a &lt;/tspan&gt;
+                    &lt;/text&gt;
+                &lt;/g&gt;
+                &lt;g id=&quot;g408&quot;&gt;&lt;text id=&quot;text412&quot;
+                        style=&quot;font-variant:normal;font-weight:normal;font-size:6px;font-family:Helvetica;-inkscape-font-specification:Helvetica;writing-mode:lr-tb;fill:#000000;fill-opacity:1;fill-rule:nonzero;stroke:none&quot;
+                        transform=&quot;matrix(1,0,0,-1,7.5,16.65)&quot;&gt;
+                        &lt;tspan id=&quot;tspan410&quot; y=&quot;0&quot;
+                            x=&quot;0 3 6.336 8.3339996 11.334 12.666 16.002001 19.337999 21.006001 24.341999 26.01 27.677999 29.346001 32.681999 36.018002 39.354 41.021999 44.021999 47.358002 50.694 52.362 54.360001 55.692001 59.028 62.363998 64.031998 67.367996 70.367996 72.036003 73.704002 77.040001 78.708 82.043999 83.711998 87.047997 90.384003 91.716003 93.047997 96.047997 97.716003 101.052 102.384 105.72 107.388 109.056 110.724 114.06 115.728 119.064 122.4 125.736 127.404 130.40401 133.74001 135.07201 138.408 140.40601 141.73801 145.07401 148.07401 149.742 153.078&quot;&gt;
+                            serving of food contributes to a daily diet. 2,000 calories a &lt;/tspan&gt;
+                    &lt;/text&gt;
+                &lt;/g&gt;
+                &lt;g id=&quot;g414&quot;&gt;&lt;text id=&quot;text418&quot;
+                        style=&quot;font-variant:normal;font-weight:normal;font-size:6px;font-family:Helvetica;-inkscape-font-specification:Helvetica;writing-mode:lr-tb;fill:#000000;fill-opacity:1;fill-rule:nonzero;stroke:none&quot;
+                        transform=&quot;matrix(1,0,0,-1,7.5,9.32)&quot;&gt;
+                        &lt;tspan id=&quot;tspan416&quot; y=&quot;0&quot;
+                            x=&quot;0 3.336 6.6719999 9.6719999 11.34 12.672 15.672 17.34 20.676001 23.676001 27.011999 30.348 32.015999 33.683998 37.02 39.018002 40.686001 44.021999 47.358002 50.694 54.029999 56.028 59.363998 60.695999 62.363998 65.699997 69.036003 70.704002 72.702003 74.033997 75.702003 77.033997 80.370003 83.706001 85.374001 88.709999 92.045998 95.045998 96.377998 99.377998 102.714&quot;&gt;
+                            day is used for general nutrition advice.&lt;/tspan&gt;
+                    &lt;/text&gt;
+                &lt;/g&gt;
+                &lt;g id=&quot;g420&quot;&gt;
+                    &lt;path id=&quot;path422&quot;
+                        style=&quot;fill:none;stroke:#000000;stroke-width:0.5;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:10;stroke-dasharray:none;stroke-opacity:1&quot;
+                        d=&quot;M 2,321.41 H 172&quot; /&gt;
+                &lt;/g&gt;
+                &lt;g id=&quot;g424&quot;&gt;
+                    &lt;path id=&quot;path426&quot;
+                        style=&quot;fill:none;stroke:#000000;stroke-width:0.5;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:10;stroke-dasharray:none;stroke-opacity:1&quot;
+                        d=&quot;M 2,2.25 H 172&quot; /&gt;
+                &lt;/g&gt;
+                &lt;g id=&quot;g428&quot;&gt;
+                    &lt;path id=&quot;path430&quot;
+                        style=&quot;fill:none;stroke:#000000;stroke-width:0.5;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:10;stroke-dasharray:none;stroke-opacity:1&quot;
+                        d=&quot;M 2.25,321.41 V 2.25&quot; /&gt;
+                &lt;/g&gt;
+                &lt;g id=&quot;g432&quot;&gt;
+                    &lt;path id=&quot;path434&quot;
+                        style=&quot;fill:none;stroke:#000000;stroke-width:0.5;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:10;stroke-dasharray:none;stroke-opacity:1&quot;
+                        d=&quot;M 171.75,321.41 V 2.25&quot; /&gt;
+                &lt;/g&gt;
+            &lt;/g&gt;
+        &lt;/svg&gt;
+    &lt;/div&gt;
+    &lt;div style=&quot;float: right; clear: right;&quot;&gt;
+        &lt;p&gt;HTML Nutrition Label&lt;/p&gt;
+        &lt;div class=&quot;label&quot;&gt;
+            &lt;header&gt;
+                &lt;h1&gt;Nutrition Facts&lt;/h1&gt;
+                &lt;div class=&quot;divider&quot;&gt;&lt;/div&gt;
+                &lt;p&gt;6 servings per container&lt;/p&gt;
+                &lt;p class=&quot;bold&quot;&gt;Serving size &lt;span class=&quot;right&quot;&gt;1/5 cup (48g)&lt;/span&gt;&lt;/p&gt;
+            &lt;/header&gt;
+            &lt;div class=&quot;divider lg&quot;&gt;&lt;/div&gt;
+            &lt;div class=&quot;calories-info&quot;&gt;
+                &lt;p class=&quot;bold sm-text&quot;&gt;Amount per serving&lt;/p&gt;
+                &lt;h1&gt;Calories &lt;span class=&quot;right&quot;&gt;200&lt;/span&gt;&lt;/h1&gt;
+            &lt;/div&gt;
+            &lt;div class=&quot;divider md&quot;&gt;&lt;/div&gt;
+            &lt;div class=&quot;daily-value sm-text&quot;&gt;
+                &lt;p class=&quot;right no-divider&quot;&gt;% Daily Value *&lt;/p&gt;
+                &lt;div class=&quot;divider&quot;&gt;&lt;/div&gt;
+                &lt;p&gt;&lt;span class=&quot;bold&quot;&gt;Total Fat&lt;/span&gt; 4g &lt;span class=&quot;bold right&quot;&gt;5%&lt;/span&gt;&lt;/p&gt;
+                &lt;p class=&quot;indent no-divider&quot;&gt;Saturated Fat 0.2g &lt;span class=&quot;bold right&quot;&gt;1%&lt;/span&gt;&lt;/p&gt;
+                &lt;div class=&quot;divider&quot;&gt;&lt;/div&gt;
+                &lt;p class=&quot;indent no-divider&quot;&gt;&lt;i&gt;Trans&lt;/i&gt; Fat 0g&lt;/p&gt;
+                &lt;div class=&quot;divider&quot;&gt;&lt;/div&gt;
+                &lt;p class=&quot;indent no-divider&quot;&gt;Polyunsaturated Fat 0g&lt;/p&gt;
+                &lt;div class=&quot;divider&quot;&gt;&lt;/div&gt;
+                &lt;p class=&quot;indent no-divider&quot;&gt;Monounsaturated Fat 0g&lt;/p&gt;
+                &lt;div class=&quot;divider&quot;&gt;&lt;/div&gt;
+                &lt;p&gt;&lt;span class=&quot;bold&quot;&gt;Cholesterol&lt;/span&gt; 0mg &lt;span class=&quot;right bold&quot;&gt;0%&lt;/span&gt;&lt;/p&gt;
+                &lt;p&gt;&lt;span class=&quot;bold&quot;&gt;Sodium&lt;/span&gt; 110mg &lt;span class=&quot;bold right&quot;&gt;5%&lt;/span&gt;&lt;/p&gt;
+                &lt;p&gt;&lt;span class=&quot;bold&quot;&gt;Total Carbohydrate&lt;/span&gt; 15g &lt;span class=&quot;bold right&quot;&gt;5%&lt;/span&gt;&lt;/p&gt;
+                &lt;p class=&quot;indent no-divider&quot;&gt;Dietary Fiber 5g &lt;span class=&quot;bold right&quot;&gt;18%&lt;/span&gt;&lt;/p&gt;
+                &lt;div class=&quot;divider&quot;&gt;&lt;/div&gt;
+                &lt;p class=&quot;indent no-divider&quot;&gt;Total Sugars 0g&lt;/p&gt;
+                &lt;div class=&quot;divider dbl-indent&quot;&gt;&lt;/div&gt;
+                &lt;p class=&quot;dbl-indent no-divider&quot;&gt;Includes 0g Added Sugars &lt;span class=&quot;right bold&quot;&gt;0%&lt;/span&gt;
+                &lt;div class=&quot;divider&quot;&gt;&lt;/div&gt;
+                &lt;p class=&quot;indent no-divider&quot;&gt;Sugar Alcohol 0g&lt;/p&gt;
+                &lt;div class=&quot;divider&quot;&gt;&lt;/div&gt;
+                &lt;p class=&quot;no-divider&quot;&gt;&lt;span class=&quot;bold&quot;&gt;Protein&lt;/span&gt; 4g &lt;span class=&quot;bold right&quot;&gt;8%&lt;/span&gt;&lt;/p&gt;
+                &lt;div class=&quot;divider lg&quot;&gt;&lt;/div&gt;
+                &lt;p&gt;Vitamin D 1mcg &lt;span class=&quot;right&quot;&gt;4%&lt;/span&gt;&lt;/p&gt;
+                &lt;p&gt;Calcium 75mg &lt;span class=&quot;right&quot;&gt;6%&lt;/span&gt;&lt;/p&gt;
+                &lt;p&gt;Iron 0.5mg &lt;span class=&quot;right&quot;&gt;2%&lt;/span&gt;&lt;/p&gt;
+                &lt;p class=&quot;no-divider&quot;&gt;Potassium 450mg &lt;span class=&quot;right&quot;&gt;10%&lt;/span&gt;&lt;/p&gt;
+            &lt;/div&gt;
+            &lt;div class=&quot;divider md&quot;&gt;&lt;/div&gt;
+            &lt;p class=&quot;note&quot;&gt;* The % Daily Value (DV) tells you how much a nutrient in a serving of food contributes to a
+                daily diet. 2,000 calories a day is used for general nutrition advice.&lt;/p&gt;
+        &lt;/div&gt;
+    &lt;/div&gt;
+&lt;/body&gt;
+
+&lt;/html&gt;</code></pre>
+        </div>
+    </div>
+    <script>
+        var acc = document.getElementsByClassName("accordion");
+        var i;
+
+        for (i = 0; i < acc.length; i++) {
+            acc[i].addEventListener("click", function () {
+                this.classList.toggle("active");
+                var panel = this.nextElementSibling;
+                if (panel.style.maxHeight) {
+                    panel.style.maxHeight = null;
+                } else {
+                    panel.style.maxHeight = panel.scrollHeight + "px";
+                }
+            });
+        }
+    </script>
+</body>
+
+</html>
