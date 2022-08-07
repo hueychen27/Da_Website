@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dark Mode Toggling</title>
+    <link rel="stylesheet" href="a-styles.css">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        p,
+        h1 {
+            margin-bottom: 20px;
+        }
+
+        body {
+            background-color: aliceblue;
+            color: hsl(0, 0%, 20%);
+            font-size: 1.2rem;
+            padding: 10px;
+        }
+
+        h1:first-child {
+            margin-top: 10px;
+        }
+
+        object {
+            opacity: 0.8;
+        }
+
+        figure {
+            flex-direction: column;
+        }
+
+        /*Utilites*/
+
+        .add-space-bottom {
+            margin-bottom: 120vh;
+        }
+
+        .center {
+            display: flex;
+            width: 100%;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .red {
+            color: red;
+        }
+
+        .yellow {
+            color: yellow;
+        }
+
+        /*Dark Mode Styles --Start--*/
+
+        .dark-mode {
+            background-color: hsl(0, 0%, 20%);
+            color: hsl(0, 0%, 80%);
+        }
+
+        .dark-mode-btn {
+            /*Dark mode button styles*/
+            position: fixed;
+            z-index: 2;
+            bottom: 25px;
+            right: 25px;
+            border-radius: 50%;
+            padding: 0.85vw;
+            background-color: hsla(0, 0%, 0%, 0.25);
+            color: hsla(0, 0%, 100%, 0.95);
+            cursor: pointer;
+            font-size: 2rem;
+            transition: transform 0.3s ease-in-out;
+            outline: none;
+        }
+
+        .dark-mode-btn:hover,
+        .dark-mode-btn:focus-visible {
+            /*Zoom in animation of button when button is tabbed or hovered*/
+            transform: scale(1.5);
+            background-color: hsla(182, 26%, 25%, 0.25);
+        }
+
+        .dark-mode object {
+            opacity: 0.65;
+        }
+
+        .dark-mode a::after {
+            filter: brightness(0.75);
+        }
+
+        /*Icons*/
+
+        .dark::before {
+            content: "\1F319";
+        }
+
+        .light::before {
+            content: "\1F506";
+        }
+
+        /*Override dark mode*/
+
+        .dark-mode .override-dark-mode-with-opacity {
+            opacity: 0.75;
+        }
+
+        .dark-mode .override-dark-mode-with-color {
+            filter: brightness(0.8);
+        }
+
+        /*Dark Mode Styles --End--*/
+    </style>
+</head>
+
+<body>
+    <nav>
+        <a href="index.html" style="text-align: center; margin: 0 auto;">Home</a>
+    </nav>
+    <h1>Toggle Dark Mode</h1>
+
+    <p class="add-space-bottom">Press the button on the bottom right corner to toggle dark mode.</p>
+    <p>Hello.</p>
+    <figure class="center">
+        <object data="img/cat.svg" type="image/svg+xml" width="533" height="533" role="img" title="A picture of a cat"
+            class="override-dark-mode-with-opacity override-dark-mode-with-color"></object>
+        <figcaption>
+            <p>Credits: <a href='https://www.freepik.com/vectors/cat-logo'>Cat logo vector created by catalyststuff -
+                    www.freepik.com</a>
+        </figcaption>
+        <p>When this image is in dark mode, the image gets darker and has more opacity.</p>
+    </figure>
+    <p class="override-dark-mode-with-opacity red">When I am in dark mode, I have more opacity!</p>
+    <p class="override-dark-mode-with-color yellow">When I am in dark mode, I get darker!</p>
+
+    <button type="button" class="dark-mode-btn" onclick="toggleDarkMode(); toggleBtn(this);"
+        title="Toggle Dark/Light Mode"><span class="dark"></span>
+        <script defer>
+
+            // Script will toggle class "dark-mode"
+            function toggleDarkMode() {
+                const element = document.body;
+                element.classList.toggle("dark-mode");
+            }
+
+            // Toggles icon when the dark mode button is clicked
+
+            window.toggleBtn = function (button) {
+                $(button).find('span').toggleClass('dark light');
+            }
+        </script>
+        <!--Jquery is for vital for icon script-->
+        <script src="https://code.jquery.com/jquery-3.6.0.min.js"
+            integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+</body>
+
+</html>
